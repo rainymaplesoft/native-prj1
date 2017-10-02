@@ -2,7 +2,9 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: "ns-app",
-    templateUrl: "app.component.html",
+    template: `
+    <Label text="My app" textWrap="true"></Label>    
+    `,
 })
 
 export class AppComponent { }
