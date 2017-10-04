@@ -1,12 +1,17 @@
-import { NgModule } from '@angular/core';
-import { PipesModule } from "./pipes/pipes.module";
-import { PtBacklogComponent } from './pt-backlog.component';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
+
+import { PtBacklogComponent, PipesModule, PTItemModule, PTItemListComponent } from './';
+import { BacklogService } from "../services";
 
 
 @NgModule({
-    imports: [PipesModule],
-    exports: [],
-    declarations: [PtBacklogComponent],
-    providers: [],
+    imports: [NativeScriptModule, PipesModule, PTItemModule],
+    exports: [PtBacklogComponent],
+    declarations: [PtBacklogComponent, PTItemListComponent],
+    providers: [BacklogService],
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
 })
 export class PtBacklogModule { }

@@ -1,0 +1,20 @@
+<ListView [items]="ptItems" (itemTap)='listItemTap($event)'>
+    <ng-template let-item="item" let-i="index" class="items-list">
+        <GridLayout rows="60" columns="10,50,*,100">
+            <StackLayout col='0' class="li-indicator">
+                <Label [class]='getIndicatorClass(item)'></Label>
+            </StackLayout>
+            <GridLayout col='1' class="li-avatar">
+                <Image *ngIf="item.assignee" [src]="item.assignee.avatar" stretch="aspectFit"></Image>
+
+            </GridLayout>
+            <StackLayout col='2'>
+                <Label class="li-title" [text]="item.title"></Label>
+                <Label class='li-estimate' [text]="'estimate: '+ item.estimate"></Label>
+            </StackLayout>
+            <StackLayout col='3'>
+                <Label [text]="item.dateCreated | date" textWrap="true"></Label>
+            </StackLayout>
+        </GridLayout>
+    </ng-template>
+</ListView>

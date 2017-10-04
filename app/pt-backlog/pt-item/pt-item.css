@@ -1,0 +1,18 @@
+.pt-item-detail-header {
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10;
+}
+
+.pt-item-detail-header.bold {
+    font-weight: bold;
+}
+
+.pt-item-container {
+    margin-top: 20;
+    background-color: #eeedf2;
+}
+
+.pt-item-detail-header-title {
+    margin-bottom: 10;
+}
