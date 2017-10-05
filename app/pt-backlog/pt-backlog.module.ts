@@ -2,7 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 
 import { PtBacklogComponent, PipesModule, PTItemModule, PTItemListComponent } from './';
-import { BacklogService } from "../services";
+import { BacklogService } from "../services/backlog.service";
 
 
 @NgModule({

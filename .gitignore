@@ -77,3 +77,5 @@ Thumbs.db
 #nativescript
 /hooks
 /platforms
+/app/**/*.js
+

@@ -5,7 +5,7 @@ import { ItemTypePickerModalComponent } from './../shared';
 import { PTDomain } from '../../typings/domain';
 import { ItemTypeEnum, PriorityEnum, StatusEnum } from "../../shared/static-data";
 import IPTItem = PTDomain.IPTItem;
-import { BacklogService } from "../../services";
+import { BacklogService } from "../../services/backlog.service";
 
 @Component({
     moduleId: module.id,

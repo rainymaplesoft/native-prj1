@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { LoginComponent } from './pt-login.component';
 
 
 @NgModule({
     imports: [],
-    exports: [],
+    exports: [LoginComponent],
     declarations: [LoginComponent],
     providers: [],
+    schemas: [
+        NO_ERRORS_SCHEMA
+    ]
 })
 export class LoginModule { }

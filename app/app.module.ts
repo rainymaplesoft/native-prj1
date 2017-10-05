@@ -14,6 +14,10 @@ import { LoginModule } from "./pt-login/pt-login.module";
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpModule } from "nativescript-angular/http";
 
+import { setStatusBarColors } from './shared/status-bar-util';
+
+setStatusBarColors();
+
 @NgModule({
     bootstrap: [
         AppComponent

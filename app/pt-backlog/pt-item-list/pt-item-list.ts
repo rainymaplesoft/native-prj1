@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemTypeEnum, PriorityEnum, StatusEnum } from "../../shared/static-data";
 import { PTDomain } from '../../typings/domain';
 import IPTItem = PTDomain.IPTItem;
-import { BacklogService } from "../../services";
+import { BacklogService } from "../../services/backlog.service";
 
 @Component({
     moduleId: module.id, selector: 'pt-item-list', templateUrl: 'pt-item-list.html', styleUrls: ['pt-item-list.css']
