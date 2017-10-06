@@ -1,1 +1,19 @@
-<pt-item-list></pt-item-list>
+<ActionBar>
+    <ActionItem (tap)="showSlideout($event)" ios.position='right'>
+        <StackLayout class="navbar_image_wrapper" ios.horizontalAlignment='right'>
+            <Label text="MENU" textWrap="true"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<RadSideDrawer tkToggleNavButton #mySideDrawer>
+    <StackLayout tkDrawerContent class="sideStackLayout">
+        <GridLayout rows="auto,*,100" columns="" class="side-drawer-panel">
+            <Button text="LOGOUT" (tap)="logoutTap()"></Button>
+        </GridLayout>
+
+    </StackLayout>
+    <StackLayout tkMainContent>
+        <pt-item-list></pt-item-list>
+    </StackLayout>
+</RadSideDrawer>

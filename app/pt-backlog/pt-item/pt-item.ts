@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ModalDialogOptions, ModalDialogService } from "nativescript-angular/directives/dialogs";
+import { SegmentedBar, SegmentedBarItem } from 'ui/segmented-bar';
+
 
 import { ItemTypePickerModalComponent } from './../shared';
 import { PTDomain } from '../../typings/domain';
@@ -17,11 +19,21 @@ import { BacklogService } from "../../services/backlog.service";
 export class PTItemComponent implements OnInit {
 
     item: IPTItem;
+    private _itemDetailScreens = [
+        { title: 'Details', routePath: 'pt-item-details' },
+        { title: 'Tasks', routePath: 'pt-item-tasks' },
+        { title: 'Chitchat', routePath: 'pt-item-chitchat' }
+    ];
+    public myNavItems: Array<SegmentedBarItem> = [];
 
-    constructor(
-        private backlogService: BacklogService,
-        private modalService: ModalDialogService,
-        private vcRef: ViewContainerRef) { }
+
+    constructor(private backlogService: BacklogService, private modalService: ModalDialogService, private vcRef: ViewContainerRef) {
+        for (let i = 0; i < this._itemDetailScreens.length; i++) {
+            let tmpSegmentedBarItem: SegmentedBarItem = <SegmentedBarItem>new SegmentedBarItem();
+            tmpSegmentedBarItem.title = this._itemDetailScreens[i].title;
+            this.myNavItems.push(tmpSegmentedBarItem);
+        }
+    }
 
     ngOnInit() {
         this.backlogService.getItem('2').then(item => {
@@ -29,19 +41,8 @@ export class PTItemComponent implements OnInit {
         })
     }
 
-    public showTypeModal() {
-        const options: ModalDialogOptions = {
-            context: { itemTitle: this.item.title, promptMsg: "Select item type" },
-            fullscreen: true,
-            viewContainerRef: this.vcRef
-        };
-
-        this.modalService.showModal(ItemTypePickerModalComponent, options).then((res: ItemTypeEnum) => {
-            if (res) {
-                console.log(res);
-                this.item.type = res;
-            }
-        });
+    public selectedItemDetailScreenIndexChanged(segBar: SegmentedBar) {
+        let newIndex = segBar.selectedIndex;
     }
 }
 

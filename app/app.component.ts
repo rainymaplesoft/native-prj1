@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
     selector: "ns-app",
     template: `
     <Label text="My app" textWrap="true"></Label>    
-    <pt-login></pt-login>
+    <pt-backlog></pt-backlog>
 
     `,
 })
