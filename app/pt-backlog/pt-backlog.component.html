@@ -6,14 +6,39 @@
     </ActionItem>
 </ActionBar>
 
-<RadSideDrawer tkToggleNavButton #mySideDrawer>
+
+<RadSideDrawer tkExampleTitle tkToggleNavButton>
     <StackLayout tkDrawerContent class="sideStackLayout">
         <GridLayout rows="auto,*,100" columns="" class="side-drawer-panel">
-            <Button text="LOGOUT" (tap)="logoutTap()"></Button>
+            <StackLayout row='0'>
+                <Label text="LOGO HERE" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout row='1'>
+                <Button text=" MY ITEMS " (tap)="selectedFilteredView(0,' MY ITEMS ')" [class]='selectedViewIndex === 0 ? "slide-out-btn-selected " : "slide-out-btn "'></Button>
+                <Button text=" OPEN ITEMS " (tap)="selectedFilteredView(1,' MY ITEMS ')" [class]='selectedViewIndex === 1 ? "slide-out-btn-selected " : "slide-out-btn "'></Button>
+                <Button text=" FINISHED ITEMS " (tap)="selectedFilteredView(2,' MY ITEMS ')" [class]='selectedViewIndex === 2 ? "slide-out-btn-selected " : "slide-out-btn "'></Button>
+            </StackLayout>
+            <StackLayout row='2'>
+                <Button text="LOGOUT " (tap)="logoutTap() "></Button>
+            </StackLayout>
         </GridLayout>
 
     </StackLayout>
     <StackLayout tkMainContent>
-        <pt-item-list></pt-item-list>
+        <GridLayout class="backlog-container" rows="*, 60,60">
+
+            <GridLayout row="0" class="list-container">
+                <pt-item-list></pt-item-list>
+            </GridLayout>
+
+            <StackLayout row="1" class="btn-add-wrapper">
+                <Button text="Add" class="btn-add" (tap)="showAddItemModal()"></Button>
+            </StackLayout>
+            <StackLayout row='2'>
+                <Button text="OPEN DRAWER " (tap)="openDrawer() " class="drawerContentButton ">
+                </Button>
+
+            </StackLayout>
+        </GridLayout>
     </StackLayout>
 </RadSideDrawer>

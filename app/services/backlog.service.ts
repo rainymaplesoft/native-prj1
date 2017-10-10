@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { ItemTypeEnum, PriorityEnum, StatusEnum } from "../shared/static-data";
 import * as _ from 'lodash'
 
-import IPTItem = PTDomain.IPTItem;
 import { PTDomain } from "../typings/domain";
+import IPTItem = PTDomain.IPTItem;
+import INewItem = PTDomain.INewItem;
 
 @Injectable()
 export class BacklogService {
@@ -20,6 +21,9 @@ export class BacklogService {
     public getItem(id: string) {
         const selectedItem = _.find(this._allItems, i => i.id == id);
         return Promise.resolve(selectedItem);
+    }
+    public addNewPTItem(newItem: INewItem, item: any) {
+
     }
 }
 

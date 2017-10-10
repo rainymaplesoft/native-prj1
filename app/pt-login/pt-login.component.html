@@ -1,10 +1,23 @@
-<GridLayout rows="auto, auto, 50">
+<GridLayout rows="auto, auto, 50" class="form" backgroundColor='white'>
+    <StackLayout row='0'>
+        <Image src="res://rps_logo" stretch="none"></Image>
+
+    </StackLayout>
 
     <StackLayout row="1">
-        <TextField hint="Username" class="login-field"></TextField>
-        <TextField hint="Password" class="login-field" secure="true"></TextField>
+
+        <StackLayout class="input-field">
+            <Label text="Username" class="label" textWrap="true"></Label>
+            <TextField class="input"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label text="Password" class="label" textWrap="true"></Label>
+            <TextField class="input" secure="true"></TextField>
+        </StackLayout>
+
+
         <StackLayout class="btn-login-wrapper">
-            <Button text="SIGN IN" class="btn-login" (tap)="login()"></Button>
+            <Button text="SIGN IN" class="btn btn-primary" (tap)="login()"></Button>
         </StackLayout>
     </StackLayout>
 
