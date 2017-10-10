@@ -15,6 +15,7 @@ import { LoginModule } from "./pt-login/pt-login.module";
 // import { NativeScriptHttpModule } from "nativescript-angular/http";
 
 import { setStatusBarColors } from './shared/status-bar-util';
+import { UserService, AuthenticationService } from "./services";
 
 setStatusBarColors();
 
@@ -31,7 +32,7 @@ setStatusBarColors();
     declarations: [
         AppComponent
     ],
-    providers: [
+    providers: [AuthenticationService, UserService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

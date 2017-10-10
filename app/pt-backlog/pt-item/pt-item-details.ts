@@ -28,6 +28,12 @@ export class PTItemDetailsComponent implements OnInit {
         })
     }
 
+    public formFieldGridCols = '90,*,90';
+
+    public showStatusOptions() {
+
+    }
+
     public showTypeModal() {
         const options: ModalDialogOptions = {
             context: { itemTitle: this.item.title, promptMsg: "Select item type" },

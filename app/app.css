@@ -10,11 +10,8 @@ of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
 
-
 @import 'nativescript-theme-core/css/core.light.css';
-
 @import 'platform.css';
-
 Page {
     background-color: #4b5833;
 }
@@ -26,6 +23,20 @@ ActionBar {
 
 TextView {
     font-size: 14;
+}
+
+Button:highlighted {
+    animation-duration: 500ms;
+    animation-name: btnHighlight;
+}
+
+@keyframes btnHighlight {
+    from {
+        background-color: #555c95;
+    }
+    to {
+        background-color: #4b5833;
+    }
 }
 
 .form-field-col {
