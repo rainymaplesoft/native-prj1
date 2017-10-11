@@ -6,13 +6,14 @@ import { RadSideDrawer } from 'nativescript-pro-ui/sidedrawer';
 
 import { PtBacklogComponent, PipesModule, PTItemModule, PTItemListComponent } from './';
 import { BacklogService } from "../services/backlog.service";
-import { AddItemModalComponent } from './shared/add-item-modal.component';
+import { AddItemModalComponent } from './shared';
+import { MockDataService } from '../services/mock-data.service';
 
 @NgModule({
     imports: [NativeScriptModule, NativeScriptUISideDrawerModule, PipesModule, PTItemModule],
     exports: [PtBacklogComponent],
     declarations: [PtBacklogComponent, PTItemListComponent, AddItemModalComponent],
-    providers: [BacklogService],
+    providers: [BacklogService, MockDataService],
     entryComponents: [
         AddItemModalComponent
     ],

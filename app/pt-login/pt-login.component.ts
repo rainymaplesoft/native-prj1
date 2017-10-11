@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Page } from 'ui/page';
+import { View } from 'ui/core/view';
 
 import { AuthenticationService } from '../services';
 import { DEMO_PASSWORD } from '../shared/constants';
@@ -16,6 +18,11 @@ import ILoginModel = PTDomain.ILoginModel;
 export class LoginComponent implements OnInit {
     public isLoading: boolean = false;
 
+    @ViewChild('loginInputs') loginInputsRef: ElementRef;
+
+    public get loginInputs(): View {
+        return this.loginInputsRef.nativeElement;
+    }
     public loginModel: ILoginModel = { username: 'alexziskind', password: DEMO_PASSWORD };
 
     constructor(
@@ -29,10 +36,13 @@ export class LoginComponent implements OnInit {
 
     public login() {
         this.isLoading = true;
+        this.loginInputs.className = '';
+
         this.authService.login(this.loginModel.username, this.loginModel.password)
             .subscribe(data => {
                 if (data === null) {
                     console.log('login failed');
+                    this.loginInputs.className = 'login-failed';
                 }
                 else {
                     console.log('login successful');

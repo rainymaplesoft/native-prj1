@@ -32,7 +32,8 @@ setStatusBarColors();
     declarations: [
         AppComponent
     ],
-    providers: [AuthenticationService, UserService
+    providers: [
+        AuthenticationService, UserService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

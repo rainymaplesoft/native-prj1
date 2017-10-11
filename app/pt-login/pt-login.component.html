@@ -1,25 +1,27 @@
-<GridLayout rows="auto, auto, 50" class="form" backgroundColor='white'>
-    <StackLayout row='0'>
-        <Image src="res://rps_logo" stretch="none"></Image>
+<GridLayout class="login-container">
+    <GridLayout rows="auto, auto, 50" class="form">
+        <StackLayout row='0' class="logo-container">
+            <Image src="res://rps_logo" stretch="none"></Image>
 
-    </StackLayout>
-
-    <StackLayout row="1">
-
-        <StackLayout class="input-field">
-            <Label text="Username" class="label" textWrap="true"></Label>
-            <TextField class="input"></TextField>
-        </StackLayout>
-        <StackLayout class="input-field">
-            <Label text="Password" class="label" textWrap="true"></Label>
-            <TextField class="input" secure="true"></TextField>
         </StackLayout>
 
+        <StackLayout #loginInputs row="1">
 
-        <StackLayout class="btn-login-wrapper">
-            <Button text="SIGN IN" class="btn btn-primary" (tap)="login()"></Button>
+            <StackLayout class="input-field">
+                <Label text="Username" class="label" textWrap="true"></Label>
+                <TextField class="input" [(ngModel)]='loginModel.username'></TextField>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label text="Password" class="label" textWrap="true"></Label>
+                <TextField class="input" [(ngModel)]='loginModel.password' secure="true"></TextField>
+            </StackLayout>
+
+
+            <StackLayout class="btn-login-wrapper">
+                <Button text="SIGN IN" class="btn-login" (tap)="login()"></Button>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
 
-    <ActivityIndicator row="2" [busy]="isLoading"></ActivityIndicator>
+        <ActivityIndicator row="2 " [busy]="isLoading "></ActivityIndicator>
+    </GridLayout>
 </GridLayout>
